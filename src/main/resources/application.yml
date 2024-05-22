@@ -1,0 +1,16 @@
+server:
+  port: ${PORT:8080}
+
+spring:
+  datasource:
+    driver-class-name: ${SPRING_DATASOURCE_DRIVER_CLASS_NAME:com.mysql.cj.jdbc.Driver}
+    url: ${SPRING_DATASOURCE_URL:jdbc:mysql://localhost:3306/hiss_db}
+    username: ${SPRING_DATASOURCE_USERNAME:hiss}
+    password: ${SPRING_DATASOURCE_PASSWORD:!Qwer432}
+  jpa:
+    show-sql: false
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+    database: ${SPRING_DATASOURCE:MYSQL}
+    database-platform: ${JPA_DATABASE_PLATFORM:org.hibernate.dialect.MySQL8Dialect}
