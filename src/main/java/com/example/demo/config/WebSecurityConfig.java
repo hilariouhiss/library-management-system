@@ -70,15 +70,13 @@ public class WebSecurityConfig {
                 )
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(
-                        auth -> {
-                            auth
-                                    .requestMatchers("/login").permitAll()
-                                    .requestMatchers("/register").permitAll()
-                                    .requestMatchers("/user/**").hasAnyRole("ADMIN")
-                                    .requestMatchers("/book/**").hasAnyRole("ADMIN", "USER")
-                                    .requestMatchers("/borrow/**").hasAnyRole("ADMIN", "USER")
-                                    .anyRequest().authenticated();
-                        }
+                        auth -> auth
+                                .requestMatchers("/login").permitAll()
+                                .requestMatchers("/register").permitAll()
+                                .requestMatchers("/user/**").hasAnyRole("ADMIN")
+                                .requestMatchers("/book/**").hasAnyRole("ADMIN", "USER")
+                                .requestMatchers("/borrow/**").hasAnyRole("ADMIN", "USER")
+                                .anyRequest().authenticated()
                 ).sessionManagement(
                 session -> session
                         .maximumSessions(1)
