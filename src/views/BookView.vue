@@ -19,11 +19,11 @@
         <template v-slot:default="scope">
           <el-button
             type="success"
-            v-if="!(scope.row.id in borrowedBooks) && scope.row.quantity > 0"
+            v-if="!borrowedBooks.includes(scope.row.id) && scope.row.quantity > 0"
             @click="borrowBook(scope.row.id)"
             >Borrow</el-button
           >
-          <el-text v-else-if="scope.row.id in borrowedBooks" type="info">Borrowed</el-text>
+          <el-text v-else-if="borrowedBooks.includes(scope.row.id)" type="info">Borrowed</el-text>
           <el-text v-else type="danger">Out of Stock</el-text>
         </template>
       </el-table-column>

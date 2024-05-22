@@ -77,20 +77,22 @@ const borroAgain = async (id) => {
 const fetchBorrows = async () => {
   const userId = JSON.parse(localStorage.getItem('userId'))
   try {
-    const res = await axios.get(`/borrow/get/userId/${userId}`, {
-      withCredentials: true
-    })
-    borrows.value = res.data.data
-    localStorage.setItem(
-      'borrowedBooks',
-      JSON.stringify(
-        res.data.data
-          .filter((book) => book.status === 0)
-          .map((book) => {
-            book.id
-          })
-      )
-    )
+    await axios
+      .get(`/borrow/get/userId/${userId}`, {
+        withCredentials: true
+      })
+      .then((res) => {
+        borrows.value = res.data.data
+        localStorage.setItem(
+          'borrowedBooks',
+          JSON.stringify(
+            borrows.value
+              .filter((borrows) => borrows.status === 0)
+              .map((borrows) => borrows.book.id)
+          )
+        )
+        console.log(localStorage.getItem('borrowedBooks'))
+      })
   } catch (error) {
     console.error(error)
   }
