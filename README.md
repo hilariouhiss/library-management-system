@@ -1,35 +1,15 @@
-# demo
+# demo-ui
 
-This template should help get you started developing with Vue 3 in Vite.
+> demo 的前端
 
-## Recommended IDE Setup
+## 开发环境
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+- Node: v20.13.1
+- Vite: 5.2.8
 
-## Customize configuration
+## 使用
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
+```bash
+npm i
 npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
 ```
